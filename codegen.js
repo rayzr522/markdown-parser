@@ -46,11 +46,14 @@ const codegen = (tokens, prepend = '') => {
                 output += `${styles.code}${token.value}${styles.reset}`;
                 break;
             case 'CODEBLOCK':
-                let lines = token.value.split('\n').map(val => `  ${val}  `);
+                let lines = token.value.split('\n');
                 let longestLine = lines.reduce((mem, next) => next.length > mem ? next.length : mem, 0);
-                let spacer = `${styles.code}${' '.repeat(longestLine)}${styles.reset}`;
+                let spacer = `${' '.repeat(longestLine)}`;
 
-                output += `${spacer}\n${lines.map(line => `${styles.code}${line}${styles.reset}`).join('\n')}\n${spacer}`;
+                lines.unshift(spacer);
+                lines.push(spacer);
+
+                output += lines.map(line => `${styles.code}  ${line}${' '.repeat(longestLine - line.length)}  ${styles.reset}`).join('\n');
                 break;
         }
     });
