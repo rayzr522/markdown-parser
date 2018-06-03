@@ -34,7 +34,7 @@ const codegen = (tokens, prepend = '') => {
                 output += `${codegen(token.value)} (Link: ${token.url})`;
                 break;
             case 'IMG':
-                output += `${codegen(token.value)} (Image: ${token.url})`;
+                output += `(Image: ${token.url}, Alt: ${token.value})`;
                 break;
             case 'BLOCKQUOTE':
                 output += `${styles.blockquoteArrow}${styles.blockquote}${codegen(token.value, styles.blockquote)}${styles.reset}`;

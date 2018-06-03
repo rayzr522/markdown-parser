@@ -47,8 +47,8 @@ const tokenizer = input => {
                 if (type === 'HEADER') {
                     token.value = tokenizer(result[2]);
                     token.level = result[1].length;
-                } else if (type === 'CODE' || type === 'CODEBLOCK') {
-                    // No processing
+                } else if (type === 'CODE' || type === 'CODEBLOCK' || type === 'IMG') {
+                    // Raw-processed types
                     token.value = result[1];
                 } else {
                     token.value = tokenizer(result[1]);
