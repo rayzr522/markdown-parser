@@ -1,0 +1,8 @@
+{
+  "name": "markdown-parser",
+  "version": "1.0.0",
+  "description": "A simple Markdown parser.",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "Rayzr522 <rayzr522@gmail.com>"
+}
