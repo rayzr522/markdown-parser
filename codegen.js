@@ -4,6 +4,7 @@ let styles = {
     italic: '\033[3m',
     underline: '\033[4m',
     strikethrough: '\033[9m',
+    link: '\033[4m\033[36m',
     blockquote: '\033[33m',
     blockquoteArrow: '\033[2m> \033[0m',
     code: '\033[40m\033[36m'
@@ -31,7 +32,7 @@ const codegen = (tokens, prepend = '') => {
                 output += '~~' + codegen(token.value) + '~~';
                 break;
             case 'LINK':
-                output += `${codegen(token.value)} (Link: ${token.url})`;
+                output += `${styles.link}${codegen(token.value, styles.link)}${styles.reset} (Link: ${token.url})`;
                 break;
             case 'IMG':
                 output += `(Image: ${token.url}, Alt: ${token.value})`;

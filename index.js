@@ -8,8 +8,8 @@ const main = args => {
         process.exit(1);
     }
 
-    if (!fs.existsSync(args[0])) {
-        console.error(`The file '${args[0]}' does not exist.`);
+    if (!fs.existsSync(args[0]) || !fs.statSync(args[0]).isFile()) {
+        console.error(`The file '${args[0]}' does not exist or is not a file.`);
         process.exit(1);
     }
 
