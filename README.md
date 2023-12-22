@@ -22,7 +22,3 @@ node . /path/to/some/markdown/file.md
 ```
 
 It will then print the Markdown file in the terminal in a user-readable format.
-
-## Join Me
-
-[![Discord Badge](https://github.com/Rayzr522/ProjectResources/raw/master/RayzrDev/badge-small.png)](https://discord.io/rayzrdevofficial)
